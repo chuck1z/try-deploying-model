@@ -1,11 +1,12 @@
 from fastapi import FastAPI, File, UploadFile
 import uvicorn
-
+import download
 import io
 from PIL import Image
 import numpy as np
 import tensorflow as tf
 import os
+
 
 model = tf.keras.models.load_model("model.h5")
 app = FastAPI()
@@ -42,4 +43,5 @@ async def predict(file: UploadFile = File(...)):
 
 
 if __name__ == "__main__":
+    download.run()
     uvicorn.run(app, host="0.0.0.0", port=port, timeout_keep_alive=1200)
