@@ -8,7 +8,7 @@ import tensorflow as tf
 
 model = tf.keras.models.load_model("model.h5")
 app = FastAPI()
-
+port = int(os.getenv("PORT"))
 
 def preprocess_image(image):
     image = image.resize((300, 300))
