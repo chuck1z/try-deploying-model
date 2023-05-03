@@ -5,6 +5,7 @@ import io
 from PIL import Image
 import numpy as np
 import tensorflow as tf
+import os
 
 model = tf.keras.models.load_model("model.h5")
 app = FastAPI()
